@@ -10,20 +10,20 @@ pipeline {
     stages {
         stage("SCM Checkout") {
             steps{
-               git 'https://github.com/AshuThakur118/JenkinsPipeline'
+               git url: 'https://github.com/AshuThakur118/JenkinsPipeline'
             }
         }
-        stage("Compile-Package") {
+        stage("Build Code") {
             steps {
-              bat "mvn -version"
-              bat "mvn clean install"
-              bat "mvn package"
+              sh "mvn clean install"
             }
          }
-      }
-   post {
-      always {
-         cleanWs()
-      }
-   }
+        stage("Deploy") {
+            steps {
+              sshagent(['tomcat_deploy']) {
+                sh "scp -o StrictHostKeyChecking=no target/PipelineProject.war ubuntu@13.235.95.108:/opt/apache-tomcat-9.0.37/webapps"
+              }
+           } 
+        } 
+    }
 }
