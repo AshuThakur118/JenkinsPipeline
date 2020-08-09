@@ -26,9 +26,16 @@ pipeline {
         stage("Deploy") {
             steps {
               sshagent(['tomcat_deploy']) {
-                sh "scp -o StrictHostKeyChecking=no target/PipelineProject.war ubuntu@13.235.95.108:/home/ubuntu/opt/apache-tomcat-9.0.37/webapps"
+                sh "scp -o StrictHostKeyChecking=no target/PipelineProject.war ubuntu@13.235.95.108:/home/ubuntu/opt/apache-tomcat-9.0.37/webapps"   
               }
            } 
+        stage("Email") {
+            steps {
+                mail bcc: '', body: '''Hi my name is Ashutosh Kumar Thakur.
+                This is my first Project email notification.
+                THANKS''', cc: '', from: '', replyTo: '', subject: 'Jenkins Job', to: 'thakurashutosh118@gmail.com'
+              }
+           }      
         } 
     }
 }
