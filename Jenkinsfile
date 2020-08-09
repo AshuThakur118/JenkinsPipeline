@@ -32,8 +32,8 @@ pipeline {
         stage("Email") {
             steps {
                 mail bcc: '', body: '''Hi my name is Ashutosh Kumar Thakur.
-                This is my first Project email notification.
-                THANKS''', cc: '', from: '', replyTo: '', subject: 'Jenkins Job', to: 'thakurashutosh118@gmail.com'
+This is my first Project email notification.
+THANKS''', cc: '', from: '', replyTo: '', subject: 'Jenkins Job', to: 'thakurashutosh118@gmail.com'
               }
            }      
         } 
