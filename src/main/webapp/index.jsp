@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>Cristiano Data</title
+	<title>Cristiano Ronaldo</title
 </head>
 <figure>
 <img src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Cristiano_Ronaldo_2018.jpg" alt="Footballer Cristiano Ronaldo displays the modernist fastest striker of juventus." title="Cristiano Ronaldo(Brazilian Footballer)">
